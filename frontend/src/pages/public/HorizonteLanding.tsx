@@ -84,7 +84,7 @@ export default function HorizonteLanding() {
               <p className="mb-7 inline-flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[0.28em] text-[#ffd46b] sm:text-xs">
                 <span className="h-px w-10 bg-[#ffd46b]" /> Colégio Horizonte do Futuro
               </p>
-              <h1 className="max-w-[1040px] font-heading text-[clamp(3.6rem,8.9vw,9rem)] font-black leading-[0.87] tracking-[-0.075em]">
+              <h1 className="max-w-[1040px] font-heading text-[clamp(2.35rem,8.9vw,9rem)] font-black leading-[0.87] tracking-[-0.075em]">
                 Um horizonte<br /><span className="text-[#ffbd39]">de possibilidades.</span>
               </h1>
               <div className="mt-8 flex max-w-[800px] flex-col gap-8 sm:mt-10 sm:flex-row sm:items-end sm:justify-between">
