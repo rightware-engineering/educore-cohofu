@@ -51,12 +51,14 @@ export default function GenericTenantLogin() {
       <div className="grid min-h-screen lg:grid-cols-[0.95fr,1.05fr]">
         <aside className="relative hidden min-h-screen overflow-hidden bg-[#082d59] text-white lg:flex lg:flex-col">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_22%,#21649a,#082d59_67%)]" />
-          <img src="/school/campus.webp" alt="" className="absolute inset-0 h-full w-full object-cover object-center opacity-55" onError={(event) => { event.currentTarget.style.display = 'none'; }} />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#051d3d] via-[#082d59]/75 to-[#082d59]/40" />
           <div className="absolute -bottom-36 -right-44 h-[520px] w-[520px] rounded-full border-[65px] border-[#f6ac22]/25" aria-hidden="true" />
+          <div className="absolute -left-24 top-1/3 h-[320px] w-[320px] rounded-full border-[42px] border-white/10" aria-hidden="true" />
           <div className="relative z-10 flex flex-1 flex-col p-10 xl:p-14">
             <Link to="/" className="inline-flex w-fit items-center gap-2 text-sm font-semibold text-white/75 hover:text-white"><ArrowLeft className="h-4 w-4" /> Voltar ao site</Link>
             <div className="mt-auto max-w-xl pb-8">
+              <div className="mb-10 flex max-w-[360px] items-center justify-center rounded-[1.75rem] border border-white/20 bg-white/10 p-5 backdrop-blur-sm">
+                <img src="/school/campus.webp" alt="Imagem de campus do Colégio Horizonte do Futuro" className="h-auto max-h-[190px] w-auto max-w-full object-contain" />
+              </div>
               <SchoolBrand variant="compact" imageClassName="h-20 w-20 rounded-full bg-white p-2" />
               <p className="mt-8 text-xs font-extrabold uppercase tracking-[0.24em] text-[#ffcb55]">Portal escolar · EduCore</p>
               <h1 className="mt-4 font-heading text-5xl font-black leading-[0.96] tracking-[-0.065em] xl:text-7xl">Um horizonte<br /><span className="text-[#ffbd39]">de possibilidades.</span></h1>
@@ -90,7 +92,7 @@ export default function GenericTenantLogin() {
               </div>
 
               <div className="mt-6 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-xs leading-5 text-muted-foreground">MVP actual: autenticação ainda usa o adapter de apresentação; a configuração de tenant já é partilhada.</p>
+                <p className="text-xs leading-5 text-muted-foreground">Uma experiência digital organizada para cada papel na comunidade escolar.</p>
                 <button disabled={!!pendingRole} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#f5a923] px-6 text-sm font-extrabold text-[#082d59] transition hover:bg-[#ffc95c] disabled:opacity-60">{pendingRole ? 'A entrar…' : `Entrar como ${ROLE_META[selectedRole].label}`} {!pendingRole && <ArrowRight className="h-4 w-4" />}</button>
               </div>
             </form>
