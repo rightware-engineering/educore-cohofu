@@ -87,8 +87,14 @@ export default function GenericTenantLogin() {
               </div>
 
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" className="h-12 rounded-xl border border-input bg-card px-4 text-sm outline-none focus:ring-2 focus:ring-ring/20" />
-                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Palavra-passe" className="h-12 rounded-xl border border-input bg-card px-4 text-sm outline-none focus:ring-2 focus:ring-ring/20" />
+                <label className="grid gap-1.5 text-xs font-bold text-[#082d59]">
+                  Email
+                  <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" autoComplete="username" placeholder="nome@escola.co.mz" aria-label="Email" className="h-12 rounded-xl border border-[#082d59]/15 bg-card px-4 text-sm font-normal outline-none transition focus:border-[#f5a923] focus:ring-2 focus:ring-[#f5a923]/20" />
+                </label>
+                <label className="grid gap-1.5 text-xs font-bold text-[#082d59]">
+                  Palavra-passe
+                  <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" autoComplete="current-password" placeholder="••••••••" aria-label="Palavra-passe" className="h-12 rounded-xl border border-[#082d59]/15 bg-card px-4 text-sm font-normal outline-none transition focus:border-[#f5a923] focus:ring-2 focus:ring-[#f5a923]/20" />
+                </label>
               </div>
 
               <div className="mt-6 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
