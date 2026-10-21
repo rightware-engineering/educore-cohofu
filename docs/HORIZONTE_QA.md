@@ -6,33 +6,51 @@
 
 ## Validação técnica
 
-- `npm run build --prefix frontend` — passou.
+- `npm ci --prefix frontend` — concluído.
+- `npm run build --prefix frontend` — passou; apenas avisos de bundling de dependências com diretivas `use client` e aviso de chunk grande do Vite.
 - `npm test --prefix frontend` — passou: 3 ficheiros, 8 testes.
 - `npm run lint --prefix frontend` — 0 erros; 9 avisos legados `react-refresh/only-export-components` em componentes/UI e contexts.
-- Assets públicos auditados com HTTP 200 e MIME correto para `campus.webp`, `students.webp`, `logo.webp`, `favicon.svg` e `horizon-graphic.svg`.
-- Scan da landing, login, tenant e metadata ativos — sem referências públicas a EUNIJOPA, Páscoa, Deus Connosco ou COLUS.
-- Os oito perfis mantêm entradas próprias, incluindo a zona separada de Receção; o smoke test de browser confirmou `/app/reception/dashboard`.
+- `git diff --check` — passou.
+- HTTP 200 e MIME verificados para `logo-horizonte.webp`, `campus.webp`, `students.webp`, `classroom.webp`, `facilities.webp` e `horizon-graphic.svg`.
+- Metadata, favicon, apple touch icon e OG/Twitter apontam para o asset oficial versionado `logo-horizonte.webp`.
+- A entrada pública `/` e `/login` carregaram no browser local; o menu mobile tem botão com `aria-expanded`, `aria-controls` e links funcionais.
+- Os oito perfis continuam declarados, com rotas próprias, navegação desktop/mobile e guards existentes; a experiência de Receção foi smoke-tested em `/app/reception/dashboard` sem alterar dados reais.
 
-## Viewports capturados
+## Screenshots finais
 
-Cada screenshot foi produzido com Chromium headless contra o frontend local, com a largura pedida e altura de 1000px para desktop/tablet ou 900px para mobile.
+Os screenshots foram produzidos com Chromium headless contra o frontend local. Desktop usa 1024px de altura; mobile usa 900px. A referência original foi guardada apenas em documentação, nunca é carregada pelo runtime.
 
-| Área | 1440 | 1024 | 768 | 390 | 375 | 320 |
-|---|---|---|---|---|---|---|
-| Landing | [PNG](qa-screenshots/horizonte-landing-1440.png) | [PNG](qa-screenshots/horizonte-landing-1024.png) | [PNG](qa-screenshots/horizonte-landing-768.png) | [PNG](qa-screenshots/horizonte-landing-390.png) | [PNG](qa-screenshots/horizonte-landing-375.png) | [PNG](qa-screenshots/horizonte-landing-320.png) |
-| Login | [PNG](qa-screenshots/horizonte-login-1440.png) | [PNG](qa-screenshots/horizonte-login-1024.png) | [PNG](qa-screenshots/horizonte-login-768.png) | [PNG](qa-screenshots/horizonte-login-390.png) | [PNG](qa-screenshots/horizonte-login-375.png) | [PNG](qa-screenshots/horizonte-login-320.png) |
+| Área | 1536 | 1440 | 1024 | 768 | 390 | 375 | 320 |
+|---|---|---|---|---|---|---|---|
+| Landing | [PNG](qa-screenshots/horizonte-landing-1536.png) | [PNG](qa-screenshots/horizonte-landing-1440.png) | [PNG](qa-screenshots/horizonte-landing-1024.png) | [PNG](qa-screenshots/horizonte-landing-768.png) | [PNG](qa-screenshots/horizonte-landing-390.png) | [PNG](qa-screenshots/horizonte-landing-375.png) | [PNG](qa-screenshots/horizonte-landing-320.png) |
+| Login | [PNG](qa-screenshots/horizonte-login-1536.png) | [PNG](qa-screenshots/horizonte-login-1440.png) | [PNG](qa-screenshots/horizonte-login-1024.png) | [PNG](qa-screenshots/horizonte-login-768.png) | [PNG](qa-screenshots/horizonte-login-390.png) | [PNG](qa-screenshots/horizonte-login-375.png) | [PNG](qa-screenshots/horizonte-login-320.png) |
 
-## Observações
+**Referência fornecida:** [referencia-landing-desktop.png](design-reference/referencia-landing-desktop.png).
+**Logo fornecido integrado:** [logo-horizonte.webp](../frontend/public/school/logo-horizonte.webp).
 
-A composição editorial foi desenhada para não transformar os previews de poucos KB em fundos fotográficos full-width. Os previews aparecem apenas em molduras contidas, enquanto o hero e o ritmo visual são construídos com gradientes, círculos e tipografia própria do conceito “Um horizonte de possibilidades”.
+## Comparação visual com a referência
 
-A landing e o login foram verificados no browser; a navegação de login para Receção abriu o dashboard protegido e separado. Os dados dos dashboards continuam demonstrativos e não representam operações reais.
+Implementado com fidelidade estrutural e de linguagem visual:
 
-O lint não apresenta erros introduzidos nesta fase. Os nove avisos são preexistentes e correspondem à regra de Fast Refresh em ficheiros partilhados.
+- Header branco com logo oficial, navegação `Início`, `Sobre Nós`, `O Colégio`, `Galeria`, `Contacto` e CTA laranja `Aceder ao EduCore`.
+- Hero com headline branco/laranja, fundo azul-marinho, CTA duplo, composição direita, círculos gráficos e curva orgânica laranja/azul/branca em SVG.
+- Faixa de quatro pilares com ícones lineares, separadores suaves e títulos azul-escuro.
+- Galeria de três cards com gradiente, ícone circular dourado, títulos sobrepostos e cantos arredondados.
+- Continuidade de cores e marca no login, com oito perfis preservados e campos acessíveis.
+- Header compacto, menu mobile, CTAs tocáveis e hero empilhado sem overflow nas larguras 390, 375 e 320px.
 
-## Pendências para aprovação visual
+Diferenças deliberadas e não regressões:
 
-- Receber e integrar os originais HD do colégio, logótipo oficial e favicons autorizados.
-- Confirmar autorização para fotografias, especialmente imagens de menores.
-- Validar conteúdo institucional, contactos, morada, níveis e campanhas diretamente com o colégio.
-- Fazer aprovação visual humana antes de qualquer deployment.
+1. As fotografias de fachada, alunos e instalações que aparecem no mockup não foram tratadas como fotografias oficiais nem copiadas para o runtime. O hero usa uma moldura editorial com preview provisório contido e indicação de slot para fotografia institucional.
+2. Os três cards usam os previews existentes contidos e documentados; não são apresentados como originais HD e não são ampliados para um fundo full-width.
+3. O texto de referência sobre qualidade, disciplina, valores e liderança permanece copy demonstrativa pendente de validação institucional, conforme os handoffs.
+
+## Limitações conhecidas
+
+- A matriz de screenshots comprova os viewports pedidos, mas a aprovação visual final continua a exigir revisão humana contra os materiais oficiais.
+- Os avisos de lint são herdados e não foram introduzidos pelas alterações desta fase.
+- Os dados dos dashboards são demonstrativos; não há persistência real nem integração com ERP nesta entrega.
+
+## Próxima aprovação
+
+Receber fotografias HD originais e autorizadas, validar textos institucionais e substituir os previews sem alterar a composição. Só depois fazer aprovação visual humana e decidir deployment.

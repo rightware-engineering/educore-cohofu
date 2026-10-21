@@ -139,14 +139,14 @@ export default function GenericTenantLanding() {
             type="button"
             aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
             aria-expanded={menuOpen}
+            aria-controls="horizonte-mobile-menu"
             onClick={() => setMenuOpen(value => !value)}
             className="ml-auto rounded-lg border border-[#082c58]/20 p-2.5 lg:hidden sm:ml-0"
           >
             {menuOpen ? <X size={21} /> : <Menu size={21} />}
           </button>
         </div>
-        {menuOpen && (
-          <nav className="absolute left-0 right-0 top-full flex flex-col gap-1 border-t border-slate-100 bg-white px-6 py-5 shadow-xl lg:hidden" aria-label="Menu móvel">
+        <nav id="horizonte-mobile-menu" className={`${menuOpen ? 'flex' : 'hidden'} absolute left-0 right-0 top-full flex-col gap-1 border-t border-slate-100 bg-white px-6 py-5 shadow-xl lg:hidden`} aria-label="Menu móvel">
             {[
               ['Início', '#inicio'],
               ['Sobre Nós', '#sobre'],
@@ -159,8 +159,7 @@ export default function GenericTenantLanding() {
             <Link to="/login" onClick={() => setMenuOpen(false)} className="mt-3 inline-flex w-fit items-center gap-2 rounded-full bg-[#ffa920] px-5 py-3 text-sm font-bold">
               Aceder ao EduCore <ArrowRight size={16} />
             </Link>
-          </nav>
-        )}
+        </nav>
       </header>
 
       <main>
