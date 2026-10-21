@@ -3,46 +3,45 @@
 **Auditoria:** 21/10/2026  
 **Repositório:** `rightware-engineering/educore-cohofu`  
 **Branch:** `main`  
-**Estado:** inventário inicial; os originais HD do colégio ainda não foram fornecidos.
+**Estado:** manifesto atualizado com o logótipo fornecido no briefing; as fotografias HD autorizadas ainda estão pendentes.
 
 ## Assets atualmente versionados
 
 | Ficheiro | Localização | Resolução / formato | Tamanho | Finalidade atual | Classificação | Estado |
 |---|---|---:|---:|---|---|---|
-| `campus.webp` | `frontend/public/school/campus.webp` | 460 × 259, WebP | 4.800 B | Imagem de fundo do hero e imagem social/OG | Preview de baixa resolução; não adequado para hero full-width premium | Ativo como fallback temporário |
-| `students.webp` | `frontend/public/school/students.webp` | 400 × 192, WebP | 2.952 B | Secção “Vida escolar” | Preview de baixa resolução; não adequado para apresentação nítida | Ativo como fallback temporário |
-| `classroom.webp` | `frontend/public/school/classroom.webp` | 320 × 126, WebP | 2.194 B | Referência da landing genérica herdada | Preview de baixa resolução | Não usado pela landing Horizonte ativa |
-| `facilities.webp` | `frontend/public/school/facilities.webp` | 320 × 119, WebP | 1.732 B | Referência da landing genérica herdada | Preview de baixa resolução | Não usado pela landing Horizonte ativa |
-| `logo.webp` | `frontend/public/school/logo.webp` | 100 × 100, WebP | 2.010 B | Branding do tenant, metadata, apple touch icon e landing genérica | Preview; não confirmado como logótipo oficial de resolução útil | Ativo como marca provisória |
-| `favicon.svg` | `frontend/public/school/favicon.svg` | SVG, 710 B | 710 B | Marca provisória na landing Horizonte | Ilustração/marca provisória; não equivale ao logótipo oficial | Ativo como fallback de marca |
-| `horizon-graphic.svg` | `frontend/public/school/horizon-graphic.svg` | SVG, 805 B | 805 B | Recurso gráfico editorial da landing genérica | Ilustração vetorial; não é fotografia nem logótipo oficial | Disponível, sem uso público confirmado na experiência Horizonte ativa |
+| `campus.webp` | `frontend/public/school/campus.webp` | 460 × 259, WebP | 4.800 B | Preview de apoio visual | Preview de baixa resolução; não adequado para hero full-width premium | Provisório |
+| `students.webp` | `frontend/public/school/students.webp` | 400 × 192, WebP | 2.952 B | Preview de apoio visual | Preview de baixa resolução; não adequado para apresentação nítida | Provisório |
+| `classroom.webp` | `frontend/public/school/classroom.webp` | 320 × 126, WebP | 2.194 B | Card de espaço na landing de referência | Preview de baixa resolução | Provisório |
+| `facilities.webp` | `frontend/public/school/facilities.webp` | 320 × 119, WebP | 1.732 B | Card de espaço na landing de referência | Preview de baixa resolução | Provisório |
+| `logo.webp` | `frontend/public/school/logo.webp` | 100 × 100, WebP | 2.010 B | Material herdado | Preview não oficial | Não usar no runtime ativo |
+| `logo-horizonte.webp` | `frontend/public/school/logo-horizonte.webp` | 1080 × 1080, WebP | 63.912 B | Logo oficial fornecido: header, login, assinaturas, favicon e metadata | Asset binário fornecido pelo utilizador; proporção preservada | Integrado |
+| `logotipo-horizonte.webp` | `frontend/public/school/originals/logotipo-horizonte.webp` | 1080 × 1080, WebP | 63.912 B | Preservação do original recebido | Original preservado byte a byte | Integrado |
+| `favicon.svg` | `frontend/public/school/favicon.svg` | SVG | 710 B | Marca provisória herdada | Não equivale ao logótipo oficial | Legado, fora do runtime ativo |
+| `horizon-graphic.svg` | `frontend/public/school/horizon-graphic.svg` | SVG | 805 B | Grafismo editorial herdado | Ilustração vetorial, não fotografia nem logótipo | Disponível para referência |
 
 ## Referências no código
 
-- `frontend/src/pages/public/HorizonteLanding.tsx` usa `campus.webp`, `students.webp` e `favicon.svg`.
-- `frontend/src/pages/auth/GenericTenantLogin.tsx` usa `campus.webp` como imagem de apoio do login.
-- `frontend/src/data/tenants.ts` aponta `logo`, `mark` e `favicon` para `logo.webp`.
-- `frontend/index.html` usa `logo.webp` para favicon e apple touch icon e `campus.webp` para Open Graph/Twitter.
-- `frontend/src/pages/public/GenericTenantLanding.tsx` referencia também `classroom.webp`, `facilities.webp`, `horizon-graphic.svg` e os previews comuns; essa landing não deve substituir a entrada ativa de Horizonte sem decisão explícita.
+- `frontend/src/pages/public/HorizonteLanding.tsx` usa o logótipo oficial e previews contidos até chegarem fotografias autorizadas.
+- `frontend/src/pages/auth/GenericTenantLogin.tsx` usa o branding do tenant, agora apontado para `logo-horizonte.webp`.
+- `frontend/src/data/tenants.ts` aponta `logo`, `mark` e `favicon` para `logo-horizonte.webp`.
+- `frontend/index.html` usa `logo-horizonte.webp` para favicon, apple touch icon e Open Graph/Twitter.
+- `frontend/src/pages/public/GenericTenantLanding.tsx` contém a composição de referência da landing pública e será mantida sem usar o screenshot como media.
 
 ## Critérios de qualidade
 
-Nenhuma fotografia atualmente versionada foi verificada como original HD do Colégio Horizonte do Futuro. Os ficheiros WebP são pequenos previews e não devem ser ampliados artificialmente para ocupar um hero de alta qualidade. O redesign pode usar composição editorial, cor, tipografia e grafismos próprios enquanto os originais não chegam, mas não deve inventar fotografias reais nem usar assets de outra escola.
-
-Os previews atuais não contêm, nesta auditoria, uma variante original preservada em `frontend/public/school/originals/`. Quando os materiais forem fornecidos, os bytes originais devem ser guardados nessa pasta e as variantes web devem ser geradas separadamente em `frontend/public/school/`, sem substituir os originais.
+O logótipo `logo-horizonte.webp` foi recebido no briefing e preservado no diretório `originals/`. Nenhuma fotografia atualmente versionada foi verificada como original HD autorizado do Colégio Horizonte do Futuro. Os ficheiros fotográficos WebP são pequenos previews e não devem ser ampliados artificialmente para ocupar um hero de alta qualidade. A interface usa composição editorial, cor, tipografia e slots contidos enquanto os originais não chegam; não inventa fotografias reais nem usa assets de outra escola.
 
 ## Assets pendentes
 
-1. Logótipo oficial original em resolução útil, idealmente SVG autorizado ou PNG com transparência.
-2. Favicon e ícones oficiais, incluindo variantes para fundo claro e escuro.
-3. Fotografia original da fachada/campus, sem arte de flyer e com autorização de uso.
-4. Fotografia original de alunos, sem arte de flyer e com autorização para menores.
-5. Fotografia original de salas/professores e instalações.
-6. Fotografia original de atividades/vida escolar.
-7. Eventuais vídeos/Reels originais autorizados para poster e web.
-8. Identidade corporativa confirmada: cores, tipografia e regras de uso de marca.
-9. Evidência de autorização de uso das imagens.
-10. Conteúdo institucional validado: contactos, morada, níveis de ensino, matrículas, preços e campanhas.
+1. Favicon e ícones oficiais derivados/autorizados, incluindo variantes para fundos claros e escuros.
+2. Fotografia original da fachada/campus, sem arte de flyer e com autorização de uso.
+3. Fotografia original de alunos, sem arte de flyer e com autorização para menores.
+4. Fotografia original de salas/professores e instalações.
+5. Fotografia original de atividades/vida escolar.
+6. Eventuais vídeos/Reels originais autorizados para poster e web.
+7. Identidade corporativa confirmada: cores, tipografia e regras de uso de marca.
+8. Evidência de autorização de uso das imagens.
+9. Conteúdo institucional validado: contactos, morada, níveis de ensino, matrículas, preços e campanhas.
 
 ## Procedimento de integração futura
 

@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 const MEDIA = {
   campus: '/school/campus.webp',
   students: '/school/students.webp',
-  logo: '/school/favicon.svg',
+  logo: '/school/logo-horizonte.webp',
 } as const;
 
 function EditorialImage({ src, alt, className = '' }: { src: string; alt: string; className?: string }) {
