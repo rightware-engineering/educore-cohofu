@@ -75,28 +75,37 @@ export default function HorizonteLanding() {
       </header>
 
       <main>
-        <section className="relative isolate flex min-h-[760px] items-end overflow-hidden bg-[#082f60] text-white sm:min-h-[790px] lg:min-h-[850px]">
-          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_18%,#4e98cf_0%,#1c5b92_40%,#082f60_78%)]" />
-          <EditorialImage src={MEDIA.campus} alt="Fachada do Colégio Horizonte do Futuro, conforme material institucional da escola" className="absolute inset-0 h-full w-full object-cover object-[43%_top] opacity-[0.95]" />
-          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#041b37] via-[#07294c]/65 to-[#061f40]/35" />
-          <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-[26%] bg-gradient-to-t from-[#041b37] to-transparent" />
-          <div className="relative z-10 mx-auto w-full max-w-[1500px] px-5 pb-20 pt-44 sm:px-9 sm:pb-24 lg:px-14 lg:pb-28">
-            <p className="mb-7 inline-flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[0.28em] text-[#ffd46b] sm:text-xs">
-              <span className="h-px w-10 bg-[#ffd46b]" /> Colégio Horizonte do Futuro
-            </p>
-            <h1 className="max-w-[1040px] font-heading text-[clamp(3.6rem,8.9vw,9rem)] font-black leading-[0.87] tracking-[-0.075em]">
-              Um horizonte<br /><span className="text-[#ffbd39]">de possibilidades.</span>
-            </h1>
-            <div className="mt-8 flex max-w-[800px] flex-col gap-8 sm:mt-10 sm:flex-row sm:items-end sm:justify-between">
-              <p className="max-w-md text-base leading-7 text-white/85 sm:text-lg">
-                Cada novo dia é uma oportunidade para aprender, descobrir e crescer.
+        <section className="relative isolate overflow-hidden bg-[#082f60] text-white">
+          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_14%,#4e98cf_0%,#1c5b92_37%,#082f60_76%)]" />
+          <div aria-hidden="true" className="absolute -right-44 top-24 h-[520px] w-[520px] rounded-full border-[70px] border-[#f8ae25]/25 sm:-right-28 sm:top-32" />
+          <div aria-hidden="true" className="absolute -bottom-48 left-[42%] h-[460px] w-[760px] rotate-[-11deg] rounded-[50%] border-[24px] border-[#ffcf55]/20" />
+          <div className="relative z-10 mx-auto grid min-h-[760px] w-full max-w-[1500px] items-end gap-14 px-5 pb-16 pt-36 sm:px-9 sm:pb-24 lg:min-h-[850px] lg:grid-cols-[1.08fr_.92fr] lg:gap-10 lg:px-14 lg:pb-28 lg:pt-44">
+            <div>
+              <p className="mb-7 inline-flex items-center gap-3 text-[10px] font-extrabold uppercase tracking-[0.28em] text-[#ffd46b] sm:text-xs">
+                <span className="h-px w-10 bg-[#ffd46b]" /> Colégio Horizonte do Futuro
               </p>
-              <a href="#escola" className="inline-flex min-h-12 shrink-0 items-center gap-3 self-start border-b-2 border-[#ffbd39] pb-2 text-sm font-bold text-white transition hover:text-[#ffbd39]">
-                Conhecer a escola <ArrowDown className="h-4 w-4" />
-              </a>
+              <h1 className="max-w-[1040px] font-heading text-[clamp(3.6rem,8.9vw,9rem)] font-black leading-[0.87] tracking-[-0.075em]">
+                Um horizonte<br /><span className="text-[#ffbd39]">de possibilidades.</span>
+              </h1>
+              <div className="mt-8 flex max-w-[800px] flex-col gap-8 sm:mt-10 sm:flex-row sm:items-end sm:justify-between">
+                <p className="max-w-md text-base leading-7 text-white/85 sm:text-lg">
+                  Cada novo dia é uma oportunidade para aprender, descobrir e crescer.
+                </p>
+                <a href="#escola" className="inline-flex min-h-12 shrink-0 items-center gap-3 self-start border-b-2 border-[#ffbd39] pb-2 text-sm font-bold text-white transition hover:text-[#ffbd39]">
+                  Conhecer a escola <ArrowDown className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+            <div className="relative mx-auto w-full max-w-[500px] justify-self-end rounded-[2rem] border border-white/25 bg-white/10 p-4 shadow-2xl backdrop-blur-sm sm:p-6">
+              <div className="flex min-h-[250px] items-center justify-center overflow-hidden rounded-[1.25rem] bg-[#f6b32d] p-5 sm:min-h-[320px]">
+                <EditorialImage src={MEDIA.campus} alt="Imagem de campus do Colégio Horizonte do Futuro, conforme material institucional da escola" className="h-auto max-h-[320px] w-auto max-w-full object-contain" />
+              </div>
+              <div className="flex items-end justify-between gap-4 px-1 pb-1 pt-5">
+                <p className="max-w-[230px] text-xs font-semibold leading-5 text-white/75">Um espaço para olhar mais longe e construir novos caminhos.</p>
+                <span className="font-heading text-4xl font-black tracking-[-0.08em] text-[#ffcf55]">HF</span>
+              </div>
             </div>
           </div>
-          <div aria-hidden="true" className="absolute -bottom-[190px] right-[-90px] h-[300px] w-[700px] rotate-[-10deg] rounded-[50%] border-[26px] border-[#f8ae25]/30 sm:right-[-150px]" />
         </section>
 
         <section id="escola" className="relative overflow-hidden bg-[#fbf9f4] px-5 py-20 sm:px-9 sm:py-28 lg:px-14 lg:py-36">
@@ -121,18 +130,25 @@ export default function HorizonteLanding() {
           </div>
         </section>
 
-        <section id="vivencia" className="relative isolate flex min-h-[670px] items-center overflow-hidden bg-[#f29416] text-white lg:min-h-[790px]">
+        <section id="vivencia" className="relative isolate overflow-hidden bg-[#f29416] text-white">
           <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(120deg,#a94a06,#f29416)]" />
-          <EditorialImage src={MEDIA.students} alt="Alunos com o uniforme laranja e branco em material promocional da escola" className="absolute inset-0 h-full w-full object-cover object-[68%_center] lg:left-[32%] lg:w-[68%]" />
-          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-[#082c56] via-[#082c56]/70 to-[#082c56]/10 lg:bg-gradient-to-r lg:from-[#082c56] lg:via-[#082c56]/90 lg:to-transparent" />
-          <div className="relative z-10 mx-auto w-full max-w-[1440px] px-5 py-24 sm:px-9 lg:px-14">
-            <p className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#ffcc5e]">02 / Vida escolar</p>
-            <h2 className="mt-8 max-w-[800px] font-heading text-[clamp(3rem,7.5vw,7.5rem)] font-black leading-[0.92] tracking-[-0.07em]">
-              Onde cada<br />história ganha<br /><span className="text-[#ffbc36]">um amanhã.</span>
-            </h2>
-            <p className="mt-9 max-w-sm text-base leading-7 text-white/85 sm:text-lg">
-              Um olhar sobre o espaço, as pessoas e os momentos que dão vida ao Colégio Horizonte do Futuro.
-            </p>
+          <div aria-hidden="true" className="absolute -left-36 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full border-[84px] border-[#ffd36a]/25" />
+          <div className="relative z-10 mx-auto grid min-h-[670px] w-full max-w-[1440px] items-center gap-14 px-5 py-24 sm:px-9 lg:min-h-[790px] lg:grid-cols-[.95fr_1.05fr] lg:gap-20 lg:px-14">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-[0.25em] text-[#ffdc7d]">02 / Vida escolar</p>
+              <h2 className="mt-8 max-w-[800px] font-heading text-[clamp(3rem,7.5vw,7.5rem)] font-black leading-[0.92] tracking-[-0.07em]">
+                Onde cada<br />história ganha<br /><span className="text-[#ffdc7d]">um amanhã.</span>
+              </h2>
+              <p className="mt-9 max-w-sm text-base leading-7 text-white/85 sm:text-lg">
+                Um olhar sobre o espaço, as pessoas e os momentos que dão vida ao Colégio Horizonte do Futuro.
+              </p>
+            </div>
+            <div className="relative mx-auto w-full max-w-[520px] rounded-[2rem] bg-[#082c56] p-5 shadow-2xl sm:p-8">
+              <div className="flex min-h-[280px] items-center justify-center overflow-hidden rounded-[1.25rem] bg-[#f7c14d] p-5 sm:min-h-[360px]">
+                <EditorialImage src={MEDIA.students} alt="Alunos do Colégio Horizonte do Futuro em material institucional da escola" className="h-auto max-h-[300px] w-auto max-w-full object-contain" />
+              </div>
+              <p className="mt-5 max-w-sm text-sm leading-6 text-white/75">Pessoas, espaço e aprendizagem fazem parte de um percurso que continua a abrir possibilidades.</p>
+            </div>
           </div>
         </section>
 
