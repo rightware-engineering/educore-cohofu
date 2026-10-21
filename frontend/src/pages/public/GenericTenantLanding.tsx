@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
  * an HQ-only asset has not yet been installed locally.
  */
 const MEDIA = {
-  logo: '/school/logo.webp',
+  logo: '/school/logo-horizonte.webp',
   campus: '/school/campus.webp',
   hero: '/school/hero.webp',
   heroMobile: '/school/hero-mobile.webp',
@@ -53,7 +53,7 @@ function SchoolPhoto({
             if (fallbackSrc && actualSrc !== fallbackSrc) setActualSrc(fallbackSrc);
             else setFailed(true);
           }}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain"
           style={{ objectPosition: position }}
         />
       )}
@@ -67,7 +67,7 @@ function SchoolBrand({ inverse = false }: { inverse?: boolean }) {
   return (
     <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Colégio Horizonte do Futuro — início">
       <img
-        src={logoFailed ? '/school/favicon.svg' : MEDIA.logo}
+        src={logoFailed ? '/school/logo-horizonte.webp' : MEDIA.logo}
         onError={() => setLogoFailed(true)}
         alt="Símbolo do Colégio Horizonte do Futuro"
         className="h-[51px] w-[59px] shrink-0 object-contain sm:h-[59px] sm:w-[67px]"
@@ -164,34 +164,12 @@ export default function GenericTenantLanding() {
       </header>
 
       <main>
-        <section id="inicio" aria-labelledby="horizonte-title" className="relative isolate h-[690px] overflow-hidden bg-[#082e58] text-white sm:h-[560px] lg:h-[536px]">
-          {/* Combined school + pupils photograph, as in the approved reference. */}
-          {!heroFailed ? (
-            <picture className="absolute inset-0 block">
-              <source media="(max-width: 639px)" srcSet={MEDIA.heroMobile} />
-              <img
-                src={MEDIA.hero}
-                alt="Fachada e alunos do Colégio Horizonte do Futuro"
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                className="h-full w-full object-cover object-center"
-                onError={() => setHeroFailed(true)}
-              />
-            </picture>
-          ) : (
-            <>
-              <SchoolPhoto src={MEDIA.campus} alt="Fachada do colégio" eager position="center 45%" />
-              <div className="absolute inset-y-0 right-0 hidden w-[44%] overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_22%)] sm:block">
-                <SchoolPhoto src={MEDIA.students} alt="Alunos do colégio" eager position="center top" />
-              </div>
-            </>
-          )}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#002651]/95 via-[#002651]/80 to-transparent sm:hidden" aria-hidden="true" />
-          <div className="absolute inset-0 hidden sm:block" style={{ background: "linear-gradient(90deg, rgba(0,39,83,.95) 0%, rgba(5,47,93,.84) 27%, rgba(6,45,85,.56) 45%, rgba(5,46,87,.19) 62%, transparent 80%)" }} aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#002651]/30 via-transparent to-transparent sm:hidden" aria-hidden="true" />
-          <div className="relative z-10 mx-auto flex h-full max-w-[1560px] items-end px-6 pb-[112px] sm:items-center sm:px-10 sm:pb-8 lg:px-[5.1%]">
-            <div className="max-w-[700px] sm:translate-y-[30px]">
+        <section id="inicio" aria-labelledby="horizonte-title" className="relative isolate min-h-[720px] overflow-hidden bg-[#082e58] text-white sm:min-h-[610px] lg:min-h-[600px]">
+          <div aria-hidden="true" className="absolute inset-0 bg-[radial-gradient(circle_at_82%_24%,#3681ad_0%,#0c4777_34%,#082e58_68%)]" />
+          <div aria-hidden="true" className="absolute -right-36 top-16 h-[520px] w-[520px] rounded-full border-[75px] border-[#ffad21]/25" />
+          <div aria-hidden="true" className="absolute -bottom-60 left-[35%] h-[520px] w-[840px] rotate-[-8deg] rounded-[50%] border-[24px] border-white/10" />
+          <div className="relative z-10 mx-auto grid min-h-[720px] max-w-[1560px] items-center gap-12 px-6 pb-[118px] pt-20 sm:min-h-[610px] sm:grid-cols-[1fr_.86fr] sm:px-10 sm:pb-[110px] sm:pt-24 lg:min-h-[600px] lg:grid-cols-[.98fr_1.02fr] lg:px-[5.1%]">
+            <div className="max-w-[700px] sm:translate-y-[24px]">
               <h1 id="horizonte-title" className="font-heading text-[clamp(2.45rem,4.05vw,4.4rem)] font-extrabold leading-[1.05] tracking-[-0.045em] drop-shadow-sm">
                 O futuro do seu filho<br /><span className="text-[#ffae21]">começa aqui!</span>
               </h1>
@@ -207,8 +185,25 @@ export default function GenericTenantLanding() {
                 </Link>
               </div>
             </div>
+            <div className="relative mx-auto w-full max-w-[650px] justify-self-end rounded-[2rem] border border-white/25 bg-white/10 p-4 shadow-2xl backdrop-blur-sm sm:p-5">
+              <div className="relative flex min-h-[300px] items-center justify-center overflow-hidden rounded-[1.25rem] bg-gradient-to-br from-[#f8b92f] via-[#f29a1c] to-[#0b4777] p-5 sm:min-h-[360px]">
+                {!heroFailed ? (
+                  <img src={MEDIA.hero} alt="Fachada e alunos do Colégio Horizonte do Futuro" loading="eager" decoding="async" className="h-full max-h-[330px] w-full object-contain" onError={() => setHeroFailed(true)} />
+                ) : (
+                  <>
+                    <SchoolPhoto src={MEDIA.campus} alt="Fachada do colégio" eager position="center" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#062a55]/55 via-transparent to-[#062a55]/10" aria-hidden="true" />
+                    <p className="absolute bottom-4 left-4 rounded-full bg-[#062a55]/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[.16em] text-white/80">Espaço para fotografia institucional</p>
+                  </>
+                )}
+              </div>
+              <div className="flex items-end justify-between gap-4 px-1 pb-1 pt-4">
+                <p className="max-w-[290px] text-xs leading-5 text-white/75">Uma direção visual preparada para receber os originais autorizados do colégio.</p>
+                <span className="font-heading text-4xl font-black tracking-[-0.08em] text-[#ffcf55]">HF</span>
+              </div>
+            </div>
           </div>
-          {/* Signature orange + navy wave: a visual motif, not a large page break. */}
+          {/* Curva orgânica escalável inspirada na separação da referência. */}
           <svg className="pointer-events-none absolute bottom-[-1px] left-0 z-20 h-[70px] w-full sm:h-[90px]" viewBox="0 0 1440 85" preserveAspectRatio="none" aria-hidden="true">
             <path fill="#ffa31c" d="M0 45C230 2 462 8 676 47S1118 92 1440 32V85H0Z" />
             <path fill="#082d59" d="M0 73C269 22 476 33 729 63S1119 91 1440 54V85H0Z" />
